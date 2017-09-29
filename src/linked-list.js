@@ -9,7 +9,7 @@ class LinkedList {
 
     append(data) {
       var node = new Node(data);
-      if(this.length==0) {
+      if(this.length===0) {
         this._head=node;
         this._tail=node;
       }
@@ -43,15 +43,15 @@ class LinkedList {
     insertAt(index, data) {
       var node = new Node(data);
       //there are no element
-      if ((this.length == 0 ) || ((index+1) > this.length)) {           
+      if ((this.length === 0 ) || ((index+1) > this.length)) {           
         return this;
       }
       //if insert on first position
-      if (index==0) {
+      if (index===0) {
         var headTemp = this._head;
         this._head=node;
         // no second element
-        if(this.length==1) {
+        if(this.length===1) {
           this._tail=headTemp;
           this._head.next = this._tail;
           this._tail.prev=this._head;
@@ -64,7 +64,7 @@ class LinkedList {
       }
 
       // if insert on last positi
-      else if ((index+1) == this.length) {
+      else if ((index+1) === this.length) {
         var tailTemp=this._tail;
         tailTemp.prev.next=node;
         this._tail.prev=node;   
@@ -88,7 +88,7 @@ class LinkedList {
       return this;
     }
     isEmpty() {
-      return (this.length==0)?true:false;
+      return (this.length===0)?true:false;
     }
 
     clear() {
@@ -101,13 +101,13 @@ class LinkedList {
 
     deleteAt(index) {
     	//there are no element
-      if ((this.length == 0 ) || ((index+1) > this.length) || (index<0)) {           
+      if ((this.length === 0 ) || ((index+1) > this.length) || (index<0)) {           
         return this;
       }
       //delete first element
       if (index==0) {
        	// if no second element
-        if(this.length==1) {
+        if(this.length===1) {
           this._tail=null;
           this._head=null;
           this.length=1;
@@ -119,7 +119,7 @@ class LinkedList {
         }
       }
       // delete last element
-      else if (index+1 == this.length) {
+      else if (index+1 === this.length) {
         this._tail=this._tail.prev;
         this._tail.next=null;
       }
@@ -141,7 +141,7 @@ class LinkedList {
     }
 
     reverse() {        
-      if (this.length==0) {
+      if (this.length===0) {
         return  this;
       }
 
@@ -155,7 +155,7 @@ class LinkedList {
       // reverse element between head and tail
       while(count>1) {
         currentNode = currentNode.next;
-        if(currentNode.prev!=null) {
+        if(currentNode.prev!==null) {
           var tempNode=currentNode.prev;
           currentNode.prev=currentNode.next;
           currentNode.next=tempNode; 
@@ -172,7 +172,7 @@ class LinkedList {
 
     indexOf(data) {
 
-    if(this.length==0) {
+    if(this.length===0) {
       return -1;
     }
 
@@ -180,7 +180,7 @@ class LinkedList {
     var count = 0;
 
     while (count < this.length) {
-      if(currentNode.data==data){
+      if(currentNode.data===data){
         return count;
       }
       currentNode = currentNode.next;
